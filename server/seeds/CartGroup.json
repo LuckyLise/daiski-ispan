@@ -1,0 +1,18 @@
+[
+  {
+  "cartId"  : 1,
+  "groupMember" :1
+  },
+  {
+  "cartId"  : 2,
+  "groupMember" :2
+  },
+  {
+  "cartId"  : 1,
+  "groupMember" :3
+  },
+  {
+  "cartId"  : 3,
+  "groupMember" :3
+  }
+]

@@ -1,0 +1,163 @@
+[
+  {
+    "id": 1,
+    "name": "滑雪用品",
+    "parent_id": null,
+    "gender": 0,
+    
+    "deleted_at": null
+  },
+  {
+    "id": 2,
+    "name": "毛帽",
+    "parent_id": 1,
+    "gender": 0,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 3,
+    "name": "滑雪外套",
+    "parent_id": 1,
+    "gender": 0,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 4,
+    "name": "滑雪外套-男生款",
+    "parent_id": 3,
+    "gender": 1,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 5,
+    "name": "滑雪外套-女生款",
+    "parent_id": 3,
+    "gender": 2,
+   
+
+    "deleted_at": null
+  },
+  {
+    "id": 6,
+    "name": "滑雪褲",
+    "parent_id": 1,
+    "gender": 0,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 7,
+    "name": "滑雪褲-男生款",
+    "parent_id": 6,
+    "gender": 1,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 8,
+    "name": "滑雪褲-女生款",
+    "parent_id": 6,
+    "gender": 2,
+
+    "deleted_at": null
+  },
+  {
+    "id": 9,
+    "name": "雪鞋",
+    "parent_id": 1,
+    "gender": 0,
+  
+    "deleted_at": null
+  },
+  {
+    "id": 10,
+    "name": "雪鞋-男款",
+    "parent_id": 9,
+    "gender": 1,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 11,
+    "name": "雪鞋-女款",
+    "parent_id": 9,
+    "gender": 2,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 12,
+    "name": "雪板",
+    "parent_id": 1,
+    "gender": 0,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 13,
+    "name": "雪板-單板",
+    "parent_id": 12,
+    "gender": 0,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 14,
+    "name": "雪板-雙板",
+    "parent_id": 12,
+    "gender": 0,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 15,
+    "name": "雪板-單板-男板",
+    "parent_id": 13,
+    "gender": 1,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 16,
+    "name": "雪板-單板-女板",
+    "parent_id": 13,
+    "gender": 2,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 17,
+    "name": "滑雪外套-男女通用款",
+    "parent_id": 3,
+    "gender": 3,
+  
+    "deleted_at": null
+  },
+  {
+    "id": 18,
+    "name": "滑雪褲-男女通用款",
+    "parent_id": 6,
+    "gender": 3,
+   
+    "deleted_at": null
+  },
+  {
+    "id": 19,
+    "name": "雪鞋-男女通用款",
+    "parent_id": 9,
+    "gender": 3,
+  
+    "deleted_at": null
+  },
+  {
+    "id": 20,
+    "name": "雪板-單板-男女通用款",
+    "parent_id": 13,
+    "gender": 3,
+   
+    "deleted_at": null
+  }
+]

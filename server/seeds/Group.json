@@ -1,0 +1,38 @@
+[
+  {
+    "userId": 1,
+    "locationId": 1,
+    "title": "北海道單板初學團",
+    "type": "SKI",
+    "difficulty": "BEGINNER",
+    "startDate": "2025-06-10T00:00:00.000Z",
+    "endDate":   "2025-06-12T00:00:00.000Z",
+    "minPeople": 3,
+    "maxPeople": 6,
+    "price": 2000,
+    "description": "從零開始，一起征服雪場！",
+    "allowNewbie": true,
+    "createdAt": "2025-05-13T00:00:00.000Z",
+    "endAt": null,
+    "deletedAt": null,
+    "customLocation": null
+  },
+  {
+    "userId": 1,
+    "locationId": null,
+    "title": "台北信義燒肉同樂會",
+    "type": "MEAL",
+    "difficulty": null,
+    "startDate": "2025-07-05T00:00:00.000Z",
+    "endDate":   "2025-07-05T00:00:00.000Z",
+    "minPeople": 2,
+    "maxPeople": 8,
+    "price": 800,
+    "description": "歡迎自備啤酒，吃到飽喝到爽！",
+    "allowNewbie": false,
+    "createdAt": "2025-06-01T00:00:00.000Z",
+    "endAt": null,
+    "deletedAt": null,
+    "customLocation": "台北市信義區松壽路9號"
+  }
+]

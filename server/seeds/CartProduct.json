@@ -1,0 +1,22 @@
+[
+  {
+  "cartId"  : 1,
+  "productSkuId" : 1,
+  "quantity" : 2
+  },
+   {
+  "cartId"  : 1,
+  "productSkuId" : 2,
+  "quantity" : 3
+  },
+   {
+  "cartId"  : 2,
+  "productSkuId" : 3,
+  "quantity" : 2
+  },
+   {
+  "cartId"  : 1,
+  "productSkuId" : 4,
+  "quantity" : 1
+  }
+]

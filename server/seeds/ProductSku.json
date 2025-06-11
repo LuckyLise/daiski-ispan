@@ -1,0 +1,8 @@
+[
+{"id":1,"product_id":1,"size_id":2,"sku_code":"DIM-SKT-0001-S","stock":1,"price":15400,"deleted_at":null},
+{"id":2,"product_id":1,"size_id":3,"sku_code":"DIM-SKT-0001-M","stock":1,"price":15400,"deleted_at":null},
+{"id":3,"product_id":1,"size_id":4,"sku_code":"DIM-SKT-0001-L","stock":1,"price":15400,"deleted_at":null},
+{"id":4,"product_id":1,"size_id":5,"sku_code":"DIM-SKT-0001-XL","stock":1,"price":15400,"deleted_at":null},
+{"id":5,"product_id":1,"size_id":6,"sku_code":"DIM-SKT-0001-XXL","stock":1,"price":15400,"deleted_at":null}
+]
+

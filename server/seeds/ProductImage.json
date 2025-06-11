@@ -1,0 +1,12 @@
+[
+{"id":1,"product_id":1,"url":"\/productImages\/1\/ProductPicture.jfif","sort_order":0},
+{"id":2,"product_id":1,"url":"\/productImages\/1\/ProductPicture (1).jfif","sort_order":2},
+{"id":3,"product_id":1,"url":"\/productImages\/1\/ProductPicture (2).jfif","sort_order":1},
+{"id":4,"product_id":1,"url":"\/productImages\/1\/ProductPicture (3).jfif","sort_order":3},
+{"id":5,"product_id":1,"url":"\/productImages\/1\/ProductPicture (4).jfif","sort_order":4},
+{"id":6,"product_id":2,"url":"\/productImages\/2\/ProductPicture.jfif","sort_order":0},
+{"id":7,"product_id":2,"url":"\/productImages\/2\/ProductPicture (1).jfif","sort_order":1},
+{"id":8,"product_id":2,"url":"\/productImages\/2\/ProductPicture (2).jfif","sort_order":2},
+{"id":9,"product_id":2,"url":"\/productImages\/2\/ProductPicture (3).jfif","sort_order":3},
+{"id":10,"product_id":2,"url":"\/productImages\/2\/ProductPicture (4).jfif","sort_order":4}
+]

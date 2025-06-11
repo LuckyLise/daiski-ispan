@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "快樂滑雪去滿一千折一百",
+    "typeId": 1,
+    "couponTargetId": 1,
+    "startAt": "2025-06-01T00:00:00.000Z",
+    "endAt": "2025-06-30T23:59:59.000Z",
+    "usageLimit": 100,
+    "minPurchase": 1000,
+    "createdAt": "2025-05-01T10:00:00.000Z",
+    "updatedAt": "2025-05-01T10:00:00.000Z",
+    "deletedAt": null,
+    "code": "GDVkpAWwPblj"
+  },
+  {
+    "id": 2,
+    "name": "滿兩千折二百",
+    "typeId": 1,
+    "couponTargetId": 2,
+    "startAt": "2025-03-01T00:00:00.000Z",
+    "endAt": "2025-03-31T23:59:59.000Z",
+    "usageLimit": 200,
+    "minPurchase": 2000,
+    "createdAt": "2025-02-20T09:30:00.000Z",
+    "updatedAt": "2025-02-20T09:30:00.000Z",
+    "deletedAt": null,
+    "code": "GDVkpAWwPbld"
+  },
+  {
+    "id": 3,
+    "name": "暑假滑雪滿三千折三百",
+    "typeId": 2,
+    "couponTargetId": 1,
+    "startAt": "2025-07-01T00:00:00.000Z",
+    "endAt": "2025-08-31T23:59:59.000Z",
+    "usageLimit": 50,
+    "minPurchase": 3000,
+    "createdAt": "2025-05-10T14:45:00.000Z",
+    "updatedAt": "2025-05-10T14:45:00.000Z",
+    "deletedAt": null,
+    "code": "GDVkpAWwPblw"
+  },
+  {
+    "id": 4,
+    "name": "新會員專屬滿一千五折兩百",
+    "typeId": 3,
+    "couponTargetId": 3,
+    "startAt": "2025-05-15T00:00:00.000Z",
+    "endAt": "2025-05-31T23:59:59.000Z",
+    "usageLimit": 500,
+    "minPurchase": 1500,
+    "createdAt": "2025-05-13T08:00:00.000Z",
+    "updatedAt": "2025-05-13T08:00:00.000Z",
+    "deletedAt": null,
+    "code": "GDVkpAWwPbla"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+  "cartId"  : 1,
+  "courseVariantId" :1
+  }, 
+  {
+  "cartId"  : 1,
+  "courseVariantId" :2
+  }, 
+  {
+  "cartId"  : 2,
+  "courseVariantId" :1
+  }, 
+  {
+  "cartId"  : 3,
+  "courseVariantId" :1
+  }
+]

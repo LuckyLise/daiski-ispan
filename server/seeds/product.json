@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Dimito VTX OG Temp Jacket 智能加熱滑雪外套 - Black",
+    "category_id": 17,
+    "brand_id": 1,
+    "introduction": "Waterproof : 20K / Breathability : 15K\r\nDitex 布料具有一流的抗水性和防水/透氣性能\r\n溫度控制系統（TCS），可透過輔助電池供電在內部產生熱量 ( 外套背部與胸部處設有加熱區 )\r\n用於連接口袋內 USB TYPE-C 型行動電池的傳輸線\r\n採用 Primaloft 科技羽絨保暖材質，具有高耐寒性與保暖，超輕量材質\r\n寬鬆版型，寬鬆舒適\r\nYKK® 防水拉鍊\r\n拉鍊插手口袋及中央對角拉鍊雙向設計\r\n領口處氣孔設計，呼吸舒適\r\n手臂處通行證口袋\r\n內部雪鏡網袋及內部拉鍊手機置物口袋\r\n腋下拉鍊透氣孔\r\n風帽及下擺有抽繩設計調整鬆緊\r\n可拆卸式雪裙可防止滑行時粉雪侵入\r\n魔鬼氈可調式袖口\r\n萊卡指套設計\r\n左胸飾有運動刺繡藝術設計",
+    "spec": "表面布料 : 尼龍 100% \r\n襯裡(1)：尼龍 100%\r\n襯裡(2)：聚酯纖維 100%\r\n保暖層 : 聚酯纖維 100%",
+    "publish_at": null,
+    "deleted_at": null
+  },
+  {
+    "id": 2,
+    "name": "智能加熱滑雪外套 - Black",
+    "category_id": 17,
+    "brand_id": 1,
+    "introduction": "設計",
+    "spec": "保暖層 : 聚酯纖維 100%",
+    "publish_at": null,
+    "deleted_at": null
+  },
+  {
+    "id": 3,
+    "name": " Black",
+    "category_id": 17,
+    "brand_id": 1,
+    "introduction": "Waterproof",
+    "spec": "表面布料 聚酯纖維 100%",
+    "publish_at": null,
+    "deleted_at": null
+  }
+]

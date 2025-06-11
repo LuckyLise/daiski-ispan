@@ -1,0 +1,42 @@
+[
+  {
+    "account": "test1",
+    "password": "123456",
+    "name": "鄧伯成",
+    "phone": "0979402654",
+    "birthday": "1964-09-20",
+    "email": "curtis61@gmail.com",
+    "is_coach": "1",
+    "avatar": "1"
+  },
+  {
+    "account": "test2",
+    "password": "123456",
+    "name": "史婉儀",
+    "phone": "0979402654",
+    "birthday": "1987-05-08",
+    "email": "frankgray@watts.com",
+    "is_coach": "1",
+    "avatar": "1"
+  },
+  {
+    "account": "test3",
+    "password": "123456",
+    "name": "金益凱",
+    "phone": "0901226916",
+    "birthday": "1970-02-09",
+    "email": "tasha01@hotmail.com",
+    "is_coach": "0",
+    "avatar": "1"
+  },
+  {
+    "account": "test4",
+    "password": "123456",
+    "name": "溫妤柔",
+    "phone": "0928809570",
+    "birthday": "1981-10-02",
+    "email": "john39@gmail.com",
+    "is_coach": "0",
+    "avatar": "1"
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "course_id": 1,
+    "difficulty": "初級",
+    "price": 3000,
+    "duration": 3,
+    "max_people": 10,
+    "location_id": 1,
+    "coach_id": 1,
+    "course_img_id": 1,
+    "start_at": "2025-12-01T08:00:00Z",
+    "deleted_at": null
+  },
+  {
+    "id": 2,
+    "course_id": 2,
+    "difficulty": "中級",
+    "price": 5000,
+    "duration": 4,
+    "max_people": 8,
+    "location_id": 2,
+    "coach_id": 1,
+    "course_img_id": 2,
+    "start_at": "2026-01-15T08:00:00Z",
+    "deleted_at": null
+  },
+  {
+    "id": 3,
+    "course_id": 3,
+    "difficulty": "初級",
+    "price": 2500,
+    "duration": 5,
+    "max_people": 12,
+    "location_id": 1,
+    "coach_id": 2,
+    "course_img_id": 3,
+    "start_at": "2025-12-15T09:00:00Z",
+    "deleted_at": null
+  },
+  {
+    "id": 4,
+    "course_id": 4,
+    "difficulty": "中高級",
+    "price": 7000,
+    "duration": 6,
+    "max_people": 6,
+    "location_id": 3,
+    "coach_id": 2,
+    "course_img_id": 4,
+    "start_at": "2026-02-10T07:30:00Z",
+    "deleted_at": null
+  }
+]

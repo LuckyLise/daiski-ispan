@@ -1,0 +1,10 @@
+[
+  {
+  "userId"  : 1,
+  "amount":100,
+  "payment":"LinePay",
+  "address":"taiwan",
+  "phone":"09123",
+  "name":"小明"
+  }
+]

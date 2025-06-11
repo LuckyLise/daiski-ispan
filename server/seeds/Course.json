@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "基礎滑雪課程",
+    "description": "適合初學者的滑雪入門課程。",
+    "deleted_at": null,
+    "start_at": "2025-12-01T08:00:00Z",
+    "end_at": "2025-12-10T16:00:00Z"
+  },
+  {
+    "id": 2,
+    "name": "進階滑雪技巧",
+    "description": "提升滑雪技巧，適合有經驗者。",
+    "deleted_at": null,
+    "start_at": "2026-01-15T08:00:00Z",
+    "end_at": "2026-01-20T16:00:00Z"
+  },
+  {
+    "id": 3,
+    "name": "兒童滑雪營",
+    "description": "專為6-12歲兒童設計的滑雪課程。",
+    "deleted_at": null,
+    "start_at": "2025-12-15T09:00:00Z",
+    "end_at": "2025-12-20T15:00:00Z"
+  },
+  {
+    "id": 4,
+    "name": "雪地探險體驗",
+    "description": "結合滑雪與雪地探險的課程。",
+    "deleted_at": null,
+    "start_at": "2026-02-10T07:30:00Z",
+    "end_at": "2026-02-15T17:00:00Z"
+  }
+]
