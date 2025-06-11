@@ -16,7 +16,7 @@ const local = {
 // 營運環境設定(部署至Vercel)
 const production = {
   apiURL: 'https://daiski-ispan-is17.vercel.app/api',
-  serverURL: 'https://daiski-ispan-is17.vercel.app',
+  serverURL: 'dpg-d14k6ubuibrs73ahsrvg-a.oregon-postgres.render.com',
   avatarURL: 'https://daiski-ispan-is17.vercel.app/avatar',
   nextUrl: 'https://daiski-ispan-is17.vercel.app',
 };
