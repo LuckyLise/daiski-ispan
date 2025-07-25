@@ -3,28 +3,25 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // 請確保這裡的 DATABASE_URL 是 Postgres 的連線字串
 }
 
 // 會員 
-// #region 
+// #region
 model User {
   id        Int       @id @default(autoincrement())
   account   String    @unique
   password  String
   name      String
   phone     String
-  // String->DateTime
-  birthday  DateTime?
+  birthday  DateTime?       // Postgres 會自動對應成 timestamp with time zone
   email     String
-  // 更改為與資料庫相同
-  is_coach  Int
+  is_coach  Int             // 原本用 Int 存 boolean 也可，或改成 Boolean 看你需求
   avatar    String?
   bio       String?
   createdAt DateTime  @default(now()) @map("created_at")
-  updatedAt DateTime  @updatedAt @map("updated_at")
-
+  updatedAt DateTime  @updatedAt      @map("updated_at")
   deleted_at DateTime? @map("deleted_at")
 
   favorites         UserFavorite[]
@@ -39,23 +36,11 @@ model User {
   @@map("user")
 }
 
-model Otp {
-  id        Int      @id @default(autoincrement())
-  email     String
-  token     String
-  hash      String
-  createdAt DateTime @default(now()) @map("created_at")
-  expiredAt DateTime @map("expired_at")
-
-  @@map("otp")
-}
-
 model UserFavorite {
-  id        Int @id @default(autoincrement())
-  userId    Int @map("user_id")
-  productId Int @map("product_id")
+  id        Int     @id @default(autoincrement())
+  userId    Int     @map("user_id")
+  productId Int     @map("product_id")
 
-  // 正式關聯
   user    User    @relation(fields: [userId], references: [id])
   product Product @relation(fields: [productId], references: [id])
 
@@ -69,7 +54,7 @@ model UserCoupon {
   id        Int       @id @default(autoincrement())
   userId    Int       @map("user_id")
   couponId  Int       @map("coupon_id")
-  createdAt DateTime  @default(now()) @map("created_at") @db.DateTime(0)
+  createdAt DateTime  @default(now()) @map("created_at")        // 直接用 DateTime 即可
   usedAt    DateTime? @map("used_at")
 
   coupon Coupon @relation(fields: [couponId], references: [id])
@@ -82,38 +67,37 @@ model UserCoupon {
 // #endregion
 
 // 商品
-// #region 
+// #region
 model Product {
-  id               Int              @id @default(autoincrement())
-  name             String           @db.VarChar(255)
+  id               Int       @id @default(autoincrement())
+  name             String    @db.VarChar(255)
   category_id      Int?
   brand_id         Int?
   min_price        Int?
-  introduction     String?          @db.Text
-  spec             String?          @db.Text
-  created_at       DateTime         @default(now()) @db.DateTime(0)
-  publish_at       DateTime?        @db.DateTime(0)
-  unpublish_at     DateTime?        @db.DateTime(0)
-  deleted_at       DateTime?        @db.DateTime(0)
-  product_brand    ProductBrand?    @relation(fields: [brand_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "fk_product_brand")
+  introduction     String?   @db.Text
+  spec             String?   @db.Text
+  created_at       DateTime  @default(now()) @map("created_at")
+  publish_at       DateTime? @map("publish_at")
+  unpublish_at     DateTime? @map("unpublish_at")
+  deleted_at       DateTime? @map("deleted_at")
+  product_brand    ProductBrand? @relation(fields: [brand_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "fk_product_brand")
   product_category ProductCategory? @relation(fields: [category_id], references: [id], onUpdate: Restrict, map: "product_ibfk_1")
   product_image    ProductImage[]
   product_sku      ProductSku[]
 
-  favorites UserFavorite[]
+  favorites        UserFavorite[]
 
   @@index([category_id], map: "category_id")
-  @@index([brand_id], map: "fk_product_brand")
+  @@index([brand_id], map: "idx_product_brand_id") // <--- 修改這裡
   @@map("product")
 }
-
 model ProductBrand {
   id         Int       @id @default(autoincrement())
-  name       String    @unique(map: "name") @db.VarChar(255)
+  name       String    @unique @db.VarChar(255)
   sort_order Int?      @default(0)
-  created_at DateTime  @default(now()) @db.DateTime(0)
-  updated_at DateTime  @default(now()) @db.DateTime(0)
-  deleted_at DateTime? @db.DateTime(0)
+  created_at DateTime  @default(now()) @map("created_at")
+  updated_at DateTime  @default(now()) @map("updated_at")
+  deleted_at DateTime? @map("deleted_at")
   product    Product[]
 
   @@map("product_brand")
@@ -123,10 +107,10 @@ model ProductCategory {
   id                                                                       Int                   @id @default(autoincrement())
   name                                                                     String                @db.VarChar(100)
   parent_id                                                                Int?
-  gender                                                                   Int                   @default(0) @db.TinyInt
-  created_at                                                               DateTime              @default(now()) @db.Timestamp(0)
-  updated_at                                                               DateTime              @default(now()) @db.DateTime(0)
-  deleted_at                                                               DateTime?             @db.DateTime(0)
+  gender                                                                   Int                   @default(0) // 原本 @db.TinyInt 改回一般 Int
+  created_at                                                               DateTime              @default(now()) @map("created_at")
+  updated_at                                                               DateTime              @default(now()) @map("updated_at")
+  deleted_at                                                               DateTime?             @map("deleted_at")
   product                                                                  Product[]
   product_category                                                         ProductCategory?      @relation("product_categoryToproduct_category", fields: [parent_id], references: [id], onUpdate: Restrict, map: "product_category_ibfk_1")
   other_product_category                                                   ProductCategory[]     @relation("product_categoryToproduct_category")
@@ -154,9 +138,9 @@ model ProductImage {
   product_id Int
   url        String    @db.VarChar(255)
   sort_order Int?      @default(0)
-  created_at DateTime  @default(now()) @db.DateTime(0)
-  updated_at DateTime  @default(now()) @db.DateTime(0)
-  deleted_at DateTime? @db.DateTime(0)
+  created_at DateTime  @default(now()) @map("created_at")
+  updated_at DateTime  @default(now()) @map("updated_at")
+  deleted_at DateTime? @map("deleted_at")
   product    Product   @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "product_image_ibfk_1")
 
   @@index([product_id], map: "product_id")
@@ -165,14 +149,14 @@ model ProductImage {
 
 model ProductRating {
   id          Int       @id @default(autoincrement())
-  user_id     Int
-  order_id    Int
-  product_id  Int
+  user_id     Int       @map("user_id")
+  order_id    Int       @map("order_id")
+  product_id  Int       @map("product_id")
   rating      Decimal   @db.Decimal(2, 1)
   review_text String?   @db.Text
-  created_at  DateTime  @default(now()) @db.DateTime(0)
-  updated_at  DateTime  @default(now()) @db.DateTime(0)
-  deleted_at  DateTime? @db.DateTime(0)
+  created_at  DateTime  @default(now()) @map("created_at")
+  updated_at  DateTime  @default(now()) @map("updated_at")
+  deleted_at  DateTime? @map("deleted_at")
 
   @@unique([order_id, product_id], map: "ux_order_product_rating")
   @@map("product_rating")
@@ -180,7 +164,7 @@ model ProductRating {
 
 model ProductSize {
   id          Int          @id @default(autoincrement())
-  name        String       @unique(map: "name") @db.VarChar(10)
+  name        String       @unique @db.VarChar(10)
   sort_order  Int          @default(0)
   product_sku ProductSku[]
 
@@ -191,12 +175,12 @@ model ProductSku {
   id           Int            @id @default(autoincrement())
   product_id   Int
   size_id      Int?
-  sku_code     String         @unique(map: "uq_sku_code") @db.VarChar(100)
+  sku_code     String         @unique @db.VarChar(100)
   stock        Int?           @default(0)
   price        Int
-  created_at   DateTime?      @default(now()) @db.DateTime(0)
-  updated_at   DateTime?      @default(now()) @db.DateTime(0)
-  deleted_at   DateTime?      @db.DateTime(0)
+  created_at   DateTime?      @default(now()) @map("created_at")
+  updated_at   DateTime?      @default(now()) @map("updated_at")
+  deleted_at   DateTime?      @map("deleted_at")
   product      Product        @relation(fields: [product_id], references: [id], onUpdate: Restrict, map: "product_sku_ibfk_1")
   product_size ProductSize?   @relation(fields: [size_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "product_sku_ibfk_2")
   CartProduct  CartProduct[]
@@ -210,22 +194,22 @@ model ProductSku {
 // #endregion
 
 // 揪團
-// #region 
-// 揪團
-/// 活動類型
+// #region
+
+// 活動類型
 enum ActivityType {
   SKI  @map("滑雪")
   MEAL @map("聚餐")
 }
 
-/// 滑雪難易度
+// 滑雪難易度
 enum SkiDifficulty {
   BEGINNER @map("初級")
   INTER    @map("中級")
   ADVANCE  @map("進階")
 }
 
-/// 訊息類型（文字／照片）
+// 訊息類型（文字／照片）
 enum MessageType {
   TEXT  @map("text")
   IMAGE @map("image")
@@ -249,27 +233,25 @@ model Location {
 }
 
 model Group {
-  id          Int @id @default(autoincrement())
-  organizerId Int @map("organizer_id")
-
-  user       User      @relation(fields: [organizerId], references: [id])
-  locationId Int?      @map("location_id")
-  location   Location? @relation(fields: [locationId], references: [id])
-
-  customLocation String?        @map("custom_location")
-  title          String         @db.VarChar(100)
-  type           ActivityType
-  difficulty     SkiDifficulty?
-  startDate      DateTime       @map("start_date")
-  endDate        DateTime       @map("end_date")
-  minPeople      Int            @map("min_people")
-  maxPeople      Int            @map("max_people")
-  price          Int
-  description    String?        @db.Text
-  allowNewbie    Boolean        @default(false) @map("allow_newbie")
-  createdAt      DateTime       @default(now()) @map("created_at")
-  endAt          DateTime?      @map("end_at")
-  deletedAt      DateTime?      @map("deleted_at")
+  id            Int           @id @default(autoincrement())
+  organizerId   Int           @map("organizer_id")
+  user          User          @relation(fields: [organizerId], references: [id])
+  locationId    Int?          @map("location_id")
+  location      Location?     @relation(fields: [locationId], references: [id])
+  customLocation String?       @map("custom_location")
+  title         String        @db.VarChar(100)
+  type          ActivityType
+  difficulty    SkiDifficulty?
+  startDate     DateTime      @map("start_date")
+  endDate       DateTime      @map("end_date")
+  minPeople     Int           @map("min_people")
+  maxPeople     Int           @map("max_people")
+  price         Int
+  description   String?       @db.Text
+  allowNewbie   Boolean       @default(false) @map("allow_newbie")
+  createdAt     DateTime      @default(now()) @map("created_at")
+  endAt         DateTime?     @map("end_at")
+  deletedAt     DateTime?     @map("deleted_at")
 
   // relations
   members  GroupMember[]
@@ -349,7 +331,8 @@ model ChatMessage {
 // #endregion
 
 // 師資與課程
-// #region 
+// #region
+
 model Coach {
   id             Int              @id @default(autoincrement())
   name           String
@@ -411,9 +394,9 @@ model Course {
   description   String
   content       String
   created_at    DateTime        @default(now()) @map("created_at")
-  updated_at    DateTime        @updatedAt @map("updated_at")
+  updated_at    DateTime        @updatedAt    @map("updated_at")
   deleted_at    DateTime?       @map("deleted_at")
-  start_at      DateTime        @updatedAt @map("start_at")
+  start_at      DateTime        @map("start_at")
   end_at        DateTime        @map("end_at")
   CourseImg     CourseImg[]
   CourseVariant CourseVariant[]
@@ -423,9 +406,9 @@ model Course {
 }
 
 model CourseImg {
-  id        Int    @id @default(autoincrement())
-  course_id Int
-  img       String
+  id         Int    @id @default(autoincrement())
+  course_id  Int
+  img        String
 
   course        Course          @relation(fields: [course_id], references: [id])
   CourseVariant CourseVariant[]
@@ -446,10 +429,9 @@ model CourseVariant {
   boardtype_id  Int
   created_at    DateTime @default(now()) @map("created_at")
   update_at     DateTime @updatedAt @map("update_at")
-
-  start_at   DateTime     @updatedAt @map("start_at")
-  deleted_at DateTime?    @map("deleted_at")
-  CartCourse CartCourse[]
+  start_at      DateTime @map("start_at")
+  deleted_at    DateTime? @map("deleted_at")
+  CartCourse    CartCourse[]
 
   course            Course              @relation(fields: [course_id], references: [id])
   coach             Coach               @relation(fields: [coach_id], references: [id])
@@ -484,8 +466,7 @@ model Boardtype {
   id             Int              @id @default(autoincrement())
   name           String
   BoardtypeCoach BoardtypeCoach[]
-
-  CourseVariant CourseVariant[] // ← 反向關聯
+  CourseVariant  CourseVariant[] // ← 反向關聯
 
   @@map("boardtype")
 }
@@ -502,14 +483,14 @@ model BoardtypeCoach {
 }
 
 model CourseVariantUser {
-  id                Int       @id @default(autoincrement())
+  id                Int           @id @default(autoincrement())
   course_variant_id Int
   user_id           Int
   name              String
   phone             String
   email             String
   birthday          DateTime?
-  joined_at         DateTime  @default(now())
+  joined_at         DateTime      @default(now())
   paid_at           DateTime?
 
   course_variant CourseVariant @relation(fields: [course_variant_id], references: [id])
@@ -521,8 +502,7 @@ model CourseVariantUser {
 // #endregion
 
 // 優惠券
-// #region 
-// coupon
+// #region
 model Coupon {
   id             Int       @id @default(autoincrement())
   name           String
@@ -546,7 +526,7 @@ model Coupon {
 }
 
 model CouponType {
-  id     Int    @id @default(autoincrement())
+  id     Int      @id @default(autoincrement())
   amount Int
   type   String
 
@@ -556,7 +536,7 @@ model CouponType {
 }
 
 model CouponTarget {
-  id     Int    @id @default(autoincrement())
+  id     Int      @id @default(autoincrement())
   target String
 
   Coupon Coupon[]
@@ -592,8 +572,7 @@ model GameScore {
 // #endregion
 
 // 購物車
-// #region 
-// cart
+// #region
 model Cart {
   id          Int           @id @default(autoincrement())
   userId      Int           @unique @map("user_id")
@@ -659,9 +638,8 @@ model Order {
 }
 
 model OrderProduct {
-  id      Int @id @default(autoincrement())
-  orderId Int @map("order_id")
-
+  id           Int @id @default(autoincrement())
+  orderId      Int @map("order_id")
   productSkuId Int @map("product_sku_id")
   quantity     Int
 
@@ -694,135 +672,3 @@ model OrderGroup {
 }
 
 // #endregion
-
-// -----------底下為範例--------------------------------------------------
-
-// 以下為資料表定義
-// https://www.prisma.io/docs/concepts/components/prisma-schema/data-model
-// 部落格CRUD範例
-// model Blog {
-//   id        Int      @id @default(autoincrement())
-//   // DateTime 會轉換成資料庫的 timestamp，time zone 會自動轉換成 UTC
-//   // 格式: 2021-01-01T00:00:00.000Z
-//   createdAt DateTime @default(now()) @map("created_at")
-//   // 這個欄位會在每次更新時"自動"更新時間，不需要手動更新
-//   // DateTime 會轉換成資料庫的 timestamp，time zone 會自動轉換成 UTC
-//   updatedAt DateTime @updatedAt @map("updated_at")
-//   title     String   @db.VarChar(255)
-//   content   String?  @db.Text
-//   published Boolean  @default(false)
-
-//   // 關聯: User:Blog = 1:n 
-//   // author    User     @relation(fields: [authorId], references: [id])
-//   // authorId  Int
-//   // 關聯: Blog:BlogComment = 1:n 
-//   comments BlogComment[]
-
-//   @@map("blog")
-// }
-
-// model BlogComment {
-//   id        Int      @id @default(autoincrement())
-//   content   String   @db.Text
-//   // DateTime 會轉換成資料庫的 timestamp，time zone 會自動轉換成 UTC
-//   // 格式: 2021-01-01T00:00:00.000Z
-//   createdAt DateTime @default(now()) @map("created_at")
-//   // 這個欄位會在每次更新時"自動"更新時間，不需要手動更新
-//   // DateTime 會轉換成資料庫的 timestamp，time zone 會自動轉換成 UTC
-//   updatedAt DateTime @updatedAt @map("updated_at")
-//   author    String   @db.VarChar(255)
-//   // 關聯: Blog:BlogComment = 1:n 
-//   // Blog      Blog?    @relation(fields: [blogId], references: [id])
-//   blogId    Int?     @map("blog_id")
-//   Blog      Blog?    @relation(fields: [blogId], references: [id])
-
-//   // 強制定義資料表名稱
-//   @@map("blog_comment")
-// }
-
-// model Brand {
-//   id       Int       @id @default(autoincrement())
-//   name     String    @unique
-//   img      String?
-//   info     String    @db.Text
-//   // 關聯: Brand:Product = 1:n 
-//   products Product[]
-// }
-
-// model Category {
-//   id       Int       @id @default(autoincrement())
-//   name     String    @unique
-//   parentId Int?      @map("parent_id")
-//   // 關聯: Category:Product = 1:n 
-//   products Product[]
-// }
-
-// model Favorite {
-//   // 關聯: User:Favorite = 1:n 
-//   user      User    @relation(fields: [userId], references: [id])
-//   userId    Int     @map("user_id")
-//   // 關聯: Product:Favorite = 1:n 
-//   product   Product @relation(fields: [productId], references: [id])
-//   productId Int     @map("product_id")
-
-//   // 複合主鍵
-//   @@id([userId, productId])
-// }
-
-// model Otp {
-//   id        Int      @id @default(autoincrement())
-//   email     String
-//   token     String
-//   hash      String?
-//   createdAt DateTime @default(now()) @map("created_at")
-//   expiredAt DateTime @map("expired_at")
-// }
-
-// model Profile {
-//   id       Int       @id @default(autoincrement())
-//   name     String?
-//   bio      String?   @db.Text
-//   avatar   String?
-//   sex      String?
-//   // 日期格式: 2021-01-01
-//   birth    DateTime? @db.Date
-//   phone    String?
-//   postcode String?
-//   address  String?
-//   // 1:1 關聯
-//   user     User      @relation(fields: [userId], references: [id])
-//   userId   Int       @unique @map("user_id")
-// }
-
-// model Product {
-//   id         Int        @id @default(autoincrement())
-//   name       String
-//   sn         String     @unique
-//   photos     String?    @db.Text
-//   stock      Int        @default(0)
-//   price      Int        @default(0)
-//   info       String     @db.Text
-//   // 關聯: Brand:Product = 1:n 
-//   brand      Brand      @relation(fields: [brandId], references: [id])
-//   brandId    Int        @map("brand_id")
-//   // 關聯: Category:Product = 1:n 
-//   category   Category   @relation(fields: [categoryId], references: [id])
-//   categoryId Int        @map("category_id")
-//   // 關聯: User:Product = n:m 透過 Favorite
-//   favorites  Favorite[]
-// }
-
-// model User {
-//   id              Int        @id @default(autoincrement())
-//   username        String     @unique
-//   password        String
-//   email           String     @unique
-//   // 關聯 User:Profile = 1:1 
-//   profile         Profile?
-//   emailValidated  Boolean    @default(false) @map("email_validated")
-//   googleUid       String?    @unique @map("google_uid")
-//   lineUid         String?    @unique @map("line_uid")
-//   lineAccessToken String?    @map("line_access_token") @db.Text
-//   // 關聯: User:Product = n:m 透過 Favorite
-//   favorites       Favorite[]
-// } 
