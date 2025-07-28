@@ -49,10 +49,14 @@ export default function CoachesPage() {
         return res.json();
       })
       .then((data) => {
+        console.log('取得資料:', data);
         setCoaches(data);
         setFiltered(data);
       })
-      .catch((e) => setError(e.message))
+      .catch((e) => {
+        console.error('Fetch error:', e);
+        setError(e.message);
+      })
       .finally(() => setLoading(false));
   }, []);
 
