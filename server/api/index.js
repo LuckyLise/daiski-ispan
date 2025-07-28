@@ -35,7 +35,8 @@ const server = http.createServer(app);
 const frontendUrl =
   process.env.FRONTEND_URL ||
   'http://localhost:3000' ||
-  'http://localhost:3005';
+  'http://localhost:3005' ||
+  'daiski-ispan-is17.vercel.app';
 const whiteList = frontendUrl.split(',');
 // 設定CORS
 app.use(
