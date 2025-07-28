@@ -41,7 +41,8 @@ export default function CoachesPage() {
   });
 
   useEffect(() => {
-    fetch('http://localhost:3005/api/coaches')
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    fetch(`${baseUrl}/api/coaches`)
       .then((res) => {
         if (!res.ok) throw new Error('讀取失敗');
         return res.json();
