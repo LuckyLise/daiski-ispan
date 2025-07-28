@@ -42,7 +42,8 @@ export default function CoachesPage() {
 
   useEffect(() => {
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-    fetch(`${baseUrl}/api/coaches`)
+    console.log('API base url:', baseUrl);
+    fetch(`https://daiski-ispan.onrender.com/api/coaches`)
       .then((res) => {
         if (!res.ok) throw new Error('讀取失敗');
         return res.json();
