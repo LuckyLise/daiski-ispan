@@ -21,7 +21,10 @@ export const defaultUser = {
 // GET
 export const useAuthGet = () => {
   const { data, error, isLoading, mutate, isError } = useQuery(
-    `${apiURL}/auth/check`
+    `${apiURL}/auth/check`,
+    {
+      credentials: 'include'
+    }
   );
 
   let user = defaultUser;
