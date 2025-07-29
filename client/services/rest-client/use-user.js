@@ -1,6 +1,6 @@
 import { useMutation, useQuery, fetcher } from './use-fetcher';
-import { apiURL, isDev } from '@/config';
-
+import { isDev } from '@/config';
+const apiURL = "https://daiski-ispan.onrender.com/api";
 export const defaultUser = {
   id: 0,
   account: '',
