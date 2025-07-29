@@ -12,7 +12,7 @@ export default function authenticate(req, res, next) {
 
   // 從cookie中取得存取令牌
   let token = req.cookies.accessToken;
-  console.log(token);
+
   if (!token && req.headers.authorization?.startsWith('Bearer ')) {
     token = req.headers.authorization.split(' ')[1];
   }
