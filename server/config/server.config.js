@@ -10,7 +10,7 @@ export const serverConfig = {
   nextUrl:
     env === 'development'
       ? 'http://localhost:3000'
-      : 'daiski-ispan-is17.vercel.app',
+      : 'https://daiski-ispan-is17.vercel.app',
   // 後端伺服器佈置後的網域名稱，與cookie有關
   domain: env === 'development' ? '' : 'daiski-ispan-is17.vercel.app',
   // ethereal
