@@ -89,7 +89,7 @@ const isDev = process.env.NODE_ENV === 'development';
 const options = isDev
   ? { maxAge: 30 * 86400000 }
   : {
-      domain: serverConfig.domain,
+      domain: 'daiski-ispan-is17.vercel.app',
       maxAge: 30 * 86400000, // session保存30天
       httpOnly: true, // 無法透過JavaScript讀取
       secure: true, // HTTPS才能使用
