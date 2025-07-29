@@ -9,7 +9,7 @@ import { readFile, writeFile } from 'fs/promises';
 import { z } from 'zod';
 
 // 判斷是否為開發環境
-export const isDev = false;
+export const isDev = process.env.NODE_ENV === 'development';
 
 // 轉換時間戳記為多久前
 export const timeAgo = (timestamp, timeOnly) => {
