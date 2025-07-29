@@ -181,7 +181,7 @@ export default function CoachesPage() {
           >
             <Link href={`/coaches/${t.id}`}>
               <Image
-                src={`http://localhost:3005/${t.profilephoto}`}
+                src={`${t.profilephoto}`}
                 alt={t.name}
                 width={150}
                 height={150}
