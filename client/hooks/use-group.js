@@ -10,7 +10,7 @@ export const useGroups = (memberId, token) => {
   console.log(memberId);
   return useSWR(
     memberId
-      ? [`http://localhost:3005/api/group/user/${memberId}`, token]
+      ? [`https://daiski-ispan.onrender.com/api/group/user/${memberId}`, token]
       : null,
     ([url, tk]) => fetcherGroup(url, tk)
   );

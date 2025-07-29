@@ -22,7 +22,7 @@ export default function TestPage(props) {
   // ==== login ====
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch('http://localhost:3005/api/auth/test', {
+    const response = await fetch('https://daiski-ispan.onrender.com/api/auth/test', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

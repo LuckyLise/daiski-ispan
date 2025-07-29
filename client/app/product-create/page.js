@@ -25,7 +25,7 @@ import {
 
 export default function NewProductForm() {
   const router = useRouter();
-  const base = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005';
+  const base = process.env.NEXT_PUBLIC_API_BASE || 'https://daiski-ispan.onrender.com';
 
   // 下拉選單資料
   const [categories, setCategories] = useState([]);

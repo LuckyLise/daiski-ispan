@@ -26,7 +26,7 @@ export default function SummaryPage() {
     const orderId = localStorage.getItem('summaryOrderId');
     async function fetchData() {
       try {
-        const url = `http://localhost:3005/api/cart/order/${orderId}`;
+        const url = `https://daiski-ispan.onrender.com/api/cart/order/${orderId}`;
         const res = await fetch(url, { credentials: 'include' });
         const data = await res.json();
         setOrder(data.order);

@@ -238,7 +238,7 @@ export default function UserPage() {
                   setFpLoading(true);
                   try {
                     const r = await fetch(
-                      'http://localhost:3005/api/auth/otp',
+                      'https://daiski-ispan.onrender.com/api/auth/otp',
                       {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -294,7 +294,7 @@ export default function UserPage() {
                   setFpLoading(true);
                   try {
                     const r = await fetch(
-                      'http://localhost:3005/api/auth/reset-password',
+                      'https://daiski-ispan.onrender.com/api/auth/reset-password',
                       {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },

@@ -20,7 +20,7 @@ import Container from '@/components/container';
 // uploadImage 回傳時就附上 host
 function getCkImageUrl(path) {
   // 假設後端跑在 3005 埠
-  return `http://localhost:3005${path}`;
+  return `https://daiski-ispan.onrender.com${path}`;
 }
 
 // async function uploadImage(file) {
@@ -28,7 +28,7 @@ function getCkImageUrl(path) {
 //   // fd.append('images', file);
 
 //   const res = await fetch(
-//     'http://localhost:3005/api/coaches/uploads/ckeditor',
+//     'https://daiski-ispan.onrender.com/api/coaches/uploads/ckeditor',
 //     {
 //       method: 'POST',
 //       body: fd,
@@ -279,7 +279,7 @@ export default function CourseForm({ mode = 'create', initialData = null }) {
 
   // 取得雪場清單
   useEffect(() => {
-    fetch('http://localhost:3005/api/location')
+    fetch('https://daiski-ispan.onrender.com/api/location')
       .then((r) => r.json())
       .then(setLocations)
       .catch(console.error);
@@ -473,10 +473,10 @@ export default function CourseForm({ mode = 'create', initialData = null }) {
     setIsSubmitting(true);
 
     try {
-      // await fetch(`http://localhost:3005/api/coaches/${user.id}/create`, { … })
+      // await fetch(`https://daiski-ispan.onrender.com/api/coaches/${user.id}/create`, { … })
       console.log(user.id);
       //   const res = await fetch(
-      //     `http://localhost:3005/api/coaches/${user.id}/create`,
+      //     `https://daiski-ispan.onrender.com/api/coaches/${user.id}/create`,
       //     {
       //       method: 'POST',
       //       body: fd,
@@ -484,8 +484,8 @@ export default function CourseForm({ mode = 'create', initialData = null }) {
       //     }
       //   );
       const url = isCreate
-        ? `http://localhost:3005/api/coaches/${targetCoachId}/create`
-        : `http://localhost:3005/api/coaches/${targetCoachId}/courses/${courseId}`;
+        ? `https://daiski-ispan.onrender.com/api/coaches/${targetCoachId}/create`
+        : `https://daiski-ispan.onrender.com/api/coaches/${targetCoachId}/courses/${courseId}`;
       console.log(url);
       const res = await fetch(url, {
         method: isCreate ? 'POST' : 'PUT',

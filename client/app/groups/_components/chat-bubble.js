@@ -641,7 +641,7 @@ export function ChatBubble({ apiBase, currentUser, open, onOpenChange }) {
                           <Image
                             src={
                               m.user.avatar
-                                ? `http://localhost:3005${m.user.avatar}`
+                                ? `https://daiski-ispan.onrender.com${m.user.avatar}`
                                 : '/deadicon.png'
                             }
                             alt={m.user.name || '用戶'}

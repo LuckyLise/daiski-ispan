@@ -10,7 +10,7 @@ export default function QuantityButton({
   category = '',
   type = '',
 }) {
-  const url = `http://localhost:3005/api/cart/${item.id}`;
+  const url = `https://daiski-ispan.onrender.com/api/cart/${item.id}`;
   const { cart, setCart, onAdd, onDecrease } = useCart();
 
   // FIXME 使用useCart鉤子，避免程式碼重複

@@ -14,7 +14,7 @@ export default function EditCoursePage() {
     (async () => {
       try {
         const res = await fetch(
-          `http://localhost:3005/api/coaches/${coachId}/courses/${courseId}/edit`,
+          `https://daiski-ispan.onrender.com/api/coaches/${coachId}/courses/${courseId}/edit`,
           { credentials: 'include' }
         );
         if (!res.ok) throw new Error('找不到課程或無權限');

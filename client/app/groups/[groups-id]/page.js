@@ -14,7 +14,7 @@ import MobileStickyButtons from './_components/sticky-buttons';
 import { useCart } from '@/hooks/use-cart';
 import { Button } from '@/components/ui/button';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'https://daiski-ispan.onrender.com';
 
 export default function GroupDetailPage() {
   const { onAdd } = useCart();

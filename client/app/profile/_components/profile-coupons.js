@@ -37,7 +37,7 @@ export default function ProfileCoupons(props) {
     isLoading,
     mutate: mutateCoupons,
   } = useSWR(
-    'http://localhost:3005/api/coupons/usercoupon',
+    'https://daiski-ispan.onrender.com/api/coupons/usercoupon',
     // 這就是 inline fetcher：直接用 fetch 回傳 Promise
     (url) =>
       fetch(url, {

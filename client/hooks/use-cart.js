@@ -44,7 +44,7 @@ export function CartProvider({ children }) {
   // 資料庫與狀態同步
   async function fetchSyncData() {
     try {
-      const url = 'http://localhost:3005/api/cart';
+      const url = 'https://daiski-ispan.onrender.com/api/cart';
       const res = await fetch(url, { credentials: 'include' });
       const json = await res.json();
       setCart(json.cart);
@@ -59,9 +59,9 @@ export function CartProvider({ children }) {
       console.log(item);
       let url = '';
       if (method === 'POST') {
-        url = 'http://localhost:3005/api/cart';
+        url = 'https://daiski-ispan.onrender.com/api/cart';
       } else if (method === 'PUT' || method === 'DELETE') {
-        url = `http://localhost:3005/api/cart/${item.id}`;
+        url = `https://daiski-ispan.onrender.com/api/cart/${item.id}`;
       }
       let data = {};
       if (method === 'POST') {
@@ -156,7 +156,7 @@ export function CartProvider({ children }) {
     if (category === 'CartGroup') {
       async function fetchData() {
         try {
-          const url = `http://localhost:3005/api/group/members/${item.id}`;
+          const url = `https://daiski-ispan.onrender.com/api/group/members/${item.id}`;
           const res = await fetch(url, {
             method: 'DELETE',
             credentials: 'include',
@@ -169,7 +169,7 @@ export function CartProvider({ children }) {
     } else if (category === 'CartCourse') {
       async function fetchData() {
         try {
-          const url = `http://localhost:3005/api/coaches/cancel/${item.id}}`;
+          const url = `https://daiski-ispan.onrender.com/api/coaches/cancel/${item.id}}`;
           const res = await fetch(url, {
             method: 'DELETE',
             credentials: 'include',
@@ -186,7 +186,7 @@ export function CartProvider({ children }) {
   const onClear = () => {
     async function fetchData() {
       try {
-        const url = `http://localhost:3005/api/cart/items`;
+        const url = `https://daiski-ispan.onrender.com/api/cart/items`;
         const res = await fetch(url, {
           method: 'DELETE',
           credentials: 'include',

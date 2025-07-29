@@ -316,7 +316,7 @@ export function useUserRegister() {
    */
   const register = (payload) =>
     // fetch(`${process.env.NEXT_PUBLIC_API_BASE}/api/auth/register`, {
-    fetch(`http://localhost:3005/api/auth/register`, {
+    fetch(`https://daiski-ispan.onrender.com/api/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),

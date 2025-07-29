@@ -18,7 +18,7 @@ import { motion, AnimatePresence } from 'framer-motion'; // 引入 framer-motion
 import Link from 'next/link';
 
 // API URL 常數
-const base = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005';
+const base = process.env.NEXT_PUBLIC_API_BASE || 'https://daiski-ispan.onrender.com';
 const API_BASE_URL = `${base}/api`;
 const FAVORITES_API_URL = `${API_BASE_URL}/profile/favorites`;
 const PRODUCT_API_URL = `${API_BASE_URL}/products`;

@@ -52,7 +52,7 @@ function useIsMobile(breakpoint = 1024) {
   return isMobile;
 }
 
-const base = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005';
+const base = process.env.NEXT_PUBLIC_API_BASE || 'https://daiski-ispan.onrender.com';
 const fetcher = (url) =>
   fetch(`${base}${url}`, { credentials: 'include' }).then((r) => r.json());
 

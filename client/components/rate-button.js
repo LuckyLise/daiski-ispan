@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import RateDialog from './rate-dialog';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
-const base = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005';
+const base = process.env.NEXT_PUBLIC_API_BASE || 'https://daiski-ispan.onrender.com';
 
 // 改寫 fetcher：404 回 null；其他非 2xx 則 throw
 const fetcher = async (url) => {

@@ -34,9 +34,9 @@ import {
 
 const base = process.env.NEXT_PUBLIC_API_BASE || '';
 
-const COURSES_API = 'http://localhost:3005/api/coaches/me/courses';
+const COURSES_API = 'https://daiski-ispan.onrender.com/api/coaches/me/courses';
 const DELETE_API = (coachId, courseId) =>
-  `http://localhost:3005/api/coaches/${coachId}/courses/${courseId}`;
+  `https://daiski-ispan.onrender.com/api/coaches/${coachId}/courses/${courseId}`;
 
 const fetcher = async (url) => {
   const res = await fetch(url, { credentials: 'include' });

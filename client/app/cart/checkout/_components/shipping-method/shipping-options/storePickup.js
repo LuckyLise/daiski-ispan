@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 export default function StorePickup({ checked = false }) {
   const { store711, openWindow } = useShip711StoreOpener(
-    `http://localhost:3005/api/shipment/711`,
+    `https://daiski-ispan.onrender.com/api/shipment/711`,
     { autoCloseMins: 3 } // x分鐘沒完成選擇會自動關閉，預設5分鐘。
   );
   const {

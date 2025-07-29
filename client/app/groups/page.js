@@ -14,7 +14,7 @@ import { motion } from 'framer-motion';
 
 export default function GroupsPage() {
   const router = useRouter();
-  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005';
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'https://daiski-ispan.onrender.com';
 
   const [groupStats, setGroupStats] = useState({
     total: 0,

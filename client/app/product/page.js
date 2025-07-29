@@ -45,7 +45,7 @@
 // */
 // // SWR fetcher：把 URL 拿去 fetch 然後轉成 JSON
 // const fetcher = (url) =>
-//   fetch(`http://localhost:3005${url}`, { credentials: 'include' }).then((r) =>
+//   fetch(`https://daiski-ispan.onrender.com${url}`, { credentials: 'include' }).then((r) =>
 //     r.json()
 //   );
 
@@ -159,7 +159,7 @@
 
 //   // 讀分類清單（只做一次）
 //   useEffect(() => {
-//     fetch('http://localhost:3005/api/products/categories')
+//     fetch('https://daiski-ispan.onrender.com/api/products/categories')
 //       .then((r) => r.json())
 //       .then(setCategories)
 //       .catch(console.error);
@@ -170,7 +170,7 @@
 //     // 確保 pageInfo.category_id 是一個有效的值才去請求
 //     if (!pageInfo.category_id) return;
 
-//     const url = new URL('http://localhost:3005/api/products/sizes');
+//     const url = new URL('https://daiski-ispan.onrender.com/api/products/sizes');
 //     url.searchParams.set('category_id', String(pageInfo.category_id));
 //     fetch(url)
 //       .then((r) => r.json())
@@ -186,7 +186,7 @@
 //   // ─── 當 category_id 變更時，讀品牌列表 ───
 //   useEffect(() => {
 //     if (!pageInfo.category_id) return;
-//     const url = new URL('http://localhost:3005/api/products/brands');
+//     const url = new URL('https://daiski-ispan.onrender.com/api/products/brands');
 //     url.searchParams.set('category_id', String(pageInfo.category_id));
 //     fetch(url)
 //       .then((r) => r.json())
@@ -250,11 +250,11 @@
 //       try {
 //         if (isFav) {
 //           await fetch(
-//             `http://localhost:3005/api/profile/favorites/${productId}`,
+//             `https://daiski-ispan.onrender.com/api/profile/favorites/${productId}`,
 //             { method: 'DELETE', credentials: 'include' }
 //           );
 //         } else {
-//           await fetch('http://localhost:3005/api/profile/favorites', {
+//           await fetch('https://daiski-ispan.onrender.com/api/profile/favorites', {
 //             method: 'POST',
 //             credentials: 'include',
 //             headers: { 'Content-Type': 'application/json' },
@@ -623,9 +623,9 @@ import { useAuth } from '@/hooks/use-auth';
 // SWR 的數據獲取函式 (Fetcher)
 // 這個函式負責從指定的 URL 獲取數據並將其解析為 JSON 格式。
 // `credentials: 'include'` 確保在請求中包含憑證（例如 Cookie），用於處理需要驗證的 API。
-const base = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005';
+const base = process.env.NEXT_PUBLIC_API_BASE || 'https://daiski-ispan.onrender.com';
 const fetcher = (url) =>
-  // fetch(`http://localhost:3005${url}`, { credentials: 'include' }).then((r) =>
+  // fetch(`https://daiski-ispan.onrender.com${url}`, { credentials: 'include' }).then((r) =>
   //   r.json()
   fetch(`${base}${url}`, {
     credentials: 'include',

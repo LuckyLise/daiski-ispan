@@ -54,7 +54,7 @@ export default function CoursesPage() {
 
   /* === A. 第一次載入先抓「可選條件」 === */
   useEffect(() => {
-    fetch('http://localhost:3005/api/courses/filters')
+    fetch('https://daiski-ispan.onrender.com/api/courses/filters')
       .then((res) => res.json())
       .then(setOptions)
       .catch(() => setError('載入篩選清單失敗'));
@@ -62,7 +62,7 @@ export default function CoursesPage() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3005/api/courses`)
+    fetch(`https://daiski-ispan.onrender.com/api/courses`)
       .then((r) => r.json())
       .then((data) => {
         // ★ 後端回傳 { data, total }
@@ -248,7 +248,7 @@ export default function CoursesPage() {
               >
                 <Link href={`/courses/${c.id}`}>
                   <Image
-                    src={`http://localhost:3005/${c.photo}`}
+                    src={`https://daiski-ispan.onrender.com/${c.photo}`}
                     alt={c.name}
                     width={400}
                     height={250}

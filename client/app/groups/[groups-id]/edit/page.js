@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/card'; // 引入 Card 相關元件
 import { useAuth } from '@/hooks/use-auth';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'https://daiski-ispan.onrender.com';
 
 export default function EditGroupPage() {
   const router = useRouter();

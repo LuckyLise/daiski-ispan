@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Page(props) {
-  const url = 'http://localhost:3005/paypal';
+  const url = 'https://daiski-ispan.onrender.com/paypal';
   async function fetchData(nextCart) {
     try {
       const res = await fetch(url, {

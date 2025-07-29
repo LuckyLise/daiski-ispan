@@ -21,7 +21,7 @@ import {
 import RateButton from '@/components/rate-button';
 import { Button } from '@/components/ui/button';
 
-const API_BASE_URL = 'http://localhost:3005/api';
+const API_BASE_URL = 'https://daiski-ispan.onrender.com/api';
 const ORDERS_API_URL = `${API_BASE_URL}/cart/orders`;
 
 const fetcher = async (url) => {

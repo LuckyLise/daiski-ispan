@@ -31,11 +31,11 @@ import { useRouter } from 'next/navigation';
       try {
         if (isFav) {
           await fetch(
-            `http://localhost:3005/api/profile/favorites/${productId}`,
+            `https://daiski-ispan.onrender.com/api/profile/favorites/${productId}`,
             { method: 'DELETE', credentials: 'include' }
           );
         } else {
-          await fetch('http://localhost:3005/api/profile/favorites', {
+          await fetch('https://daiski-ispan.onrender.com/api/profile/favorites', {
             method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },

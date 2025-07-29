@@ -35,7 +35,7 @@ export default function PaypalPage() {
 
   const onCreateOrder = async () => {
     try {
-      const url = 'http://localhost:3005/api/paypal';
+      const url = 'https://daiski-ispan.onrender.com/api/paypal';
       const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -58,7 +58,7 @@ export default function PaypalPage() {
     try {
       onClear();
       if (!data?.orderID) throw new Error('無效的訂單ID');
-      const url = `http://localhost:3005/api/paypal/${data.orderID}`;
+      const url = `https://daiski-ispan.onrender.com/api/paypal/${data.orderID}`;
       const response = await fetch(url, {
         method: 'GET',
         headers: {

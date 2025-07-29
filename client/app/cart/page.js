@@ -22,7 +22,7 @@ export default function CartPage({ setProcess }) {
   // useEffect(() => {
   //   async function fetchData() {
   //     try {
-  //       const url = 'http://localhost:3005/api/cart';
+  //       const url = 'https://daiski-ispan.onrender.com/api/cart';
   //       const res = await fetch(url, { credentials: 'include' });
   //       const json = await res.json();
   //       setData(json);

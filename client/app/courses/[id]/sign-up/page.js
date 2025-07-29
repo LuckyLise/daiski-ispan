@@ -40,7 +40,7 @@ export default function SignUpPage({ params }) {
     async function fetchCourse() {
       try {
         const res = await fetch(
-          `http://localhost:3005/api/courses/${id}/sign-up`
+          `https://daiski-ispan.onrender.com/api/courses/${id}/sign-up`
         );
         if (!res.ok) throw new Error('不ok');
         const data = await res.json();
@@ -76,7 +76,7 @@ export default function SignUpPage({ params }) {
     setSubmitting(true);
     try {
       const res = await fetch(
-        `http://localhost:3005/api/courses/${id}/sign-up`,
+        `https://daiski-ispan.onrender.com/api/courses/${id}/sign-up`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

@@ -21,7 +21,7 @@ import { PopoverClose } from '@radix-ui/react-popover';
 
 export default function GroupListPage() {
   const router = useRouter();
-  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005';
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'https://daiski-ispan.onrender.com';
 
   const [groups, setGroups] = useState([]);
   const [page, setPage] = useState(1);

@@ -84,7 +84,7 @@ export default function CheckoutPage() {
     console.log('訂單:');
     console.log(orderData);
     // 建立訂單
-    const responseOrder = await fetch('http://localhost:3005/api/cart/order', {
+    const responseOrder = await fetch('https://daiski-ispan.onrender.com/api/cart/order', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -99,7 +99,7 @@ export default function CheckoutPage() {
     // 揪團付錢
     if (cart.CartGroup[0]?.id) {
       const responseGroupPaid = await fetch(
-        `http://localhost:3005/api/group/members/${cart.CartGroup[0].id}/payment`,
+        `https://daiski-ispan.onrender.com/api/group/members/${cart.CartGroup[0].id}/payment`,
         {
           method: 'PUT',
           credentials: 'include',
@@ -115,7 +115,7 @@ export default function CheckoutPage() {
     // 寫入已使用優惠券時間
     if (couponUsedId) {
       const responseCouponUsed = await fetch(
-        `http://localhost:3005/api/cart/couponUsed/${couponUsedId}`,
+        `https://daiski-ispan.onrender.com/api/cart/couponUsed/${couponUsedId}`,
         {
           method: 'PUT',
           credentials: 'include',
@@ -134,7 +134,7 @@ export default function CheckoutPage() {
       onClear();
       // 可傳金額當 query 參數
       router.push(
-        `http://localhost:3005/api/cart/ecpay-test-only?amount=${orderData.amount}`
+        `https://daiski-ispan.onrender.com/api/cart/ecpay-test-only?amount=${orderData.amount}`
       );
     } else {
       // 清空購物車

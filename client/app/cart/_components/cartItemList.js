@@ -91,7 +91,7 @@ export default function CartItemList({
                               fill
                               src={
                                 item?.imageUrl
-                                  ? `http://localhost:3005${item.imageUrl}`
+                                  ? `https://daiski-ispan.onrender.com${item.imageUrl}`
                                   : ''
                               }
                               alt={item.imageUrl}
@@ -216,7 +216,7 @@ export default function CartItemList({
                       fill
                       src={
                         item?.imageUrl
-                          ? `http://localhost:3005${item.imageUrl}`
+                          ? `https://daiski-ispan.onrender.com${item.imageUrl}`
                           : ''
                       }
                       alt={item.imageUrl}

@@ -27,7 +27,7 @@ export default function Dino() {
     trigger,
     isMutating: isClaiming,
     error: claimError,
-  } = useSWRMutation('http://localhost:3005/api/game', (url, { arg }) => {
+  } = useSWRMutation('https://daiski-ispan.onrender.com/api/game', (url, { arg }) => {
     return fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

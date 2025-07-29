@@ -45,7 +45,7 @@ export default function CoursesIdPage() {
 
   useEffect(() => {
     if (!id) return;
-    fetch(`http://localhost:3005/api/courses/${id}`)
+    fetch(`https://daiski-ispan.onrender.com/api/courses/${id}`)
       .then(async (res) => {
         if (!res.ok) {
           const txt = await res.text();
@@ -75,7 +75,7 @@ export default function CoursesIdPage() {
               <Image
                 src={
                   course.images
-                    ? `http://localhost:3005${course.images[course.images.length - 1]}`
+                    ? `https://daiski-ispan.onrender.com${course.images[course.images.length - 1]}`
                     : ''
                 }
                 alt="{course.name}"

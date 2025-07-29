@@ -9,7 +9,7 @@ export default function GroupsLayout({ children }) {
   const [isChatBubbleOpen, setIsChatBubbleOpen] = useState(false);
 
   // apiBase 應該來自環境變數或設定檔
-  const apiBase = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:3005';
+  const apiBase = process.env.NEXT_PUBLIC_API_BASE || 'https://daiski-ispan.onrender.com';
 
   // 在初始載入認證狀態時，可以先不渲染 ChatBubble，或者讓 ChatBubble 內部處理
   if (isAuthLoading) {

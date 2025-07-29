@@ -8,7 +8,7 @@ export default function Test2Page(props) {
     const token = localStorage.getItem('tokenBox');
     console.log('token', token);
     async function getUser() {
-      const response = await fetch('http://localhost:3005/api/auth/test', {
+      const response = await fetch('https://daiski-ispan.onrender.com/api/auth/test', {
         method: 'GET',
         headers: {
           Authorization: 'Bearer ' + token,

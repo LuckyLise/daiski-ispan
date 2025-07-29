@@ -75,7 +75,7 @@ export default function EditableAvatar({
         onClick={handleAvatarClick}
       >
         <AvatarImage
-          src={`http://localhost:3005${src}`}
+          src={`https://daiski-ispan.onrender.com${src}`}
           alt="member avatar"
           className="w-full h-full object-cover"
         />

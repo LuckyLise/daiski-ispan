@@ -14,7 +14,7 @@ export default function CoachIdPage(props) {
   console.log(coach);
   useEffect(() => {
     if (!coachesId) return;
-    fetch(`http://localhost:3005/api/coaches/${coachesId}`)
+    fetch(`https://daiski-ispan.onrender.com/api/coaches/${coachesId}`)
       .then(async (res) => {
         if (!res.ok) {
           throw new Error(`錯誤`);
@@ -52,7 +52,7 @@ export default function CoachIdPage(props) {
           {/* 教練照片 */}
           <div className="w-full lg:w-1/3">
             <img
-              src={`http://localhost:3005${coach.profilephoto}`}
+              src={`https://daiski-ispan.onrender.com${coach.profilephoto}`}
               alt={coach.name}
               width={500}
               height={600}
@@ -119,7 +119,7 @@ export default function CoachIdPage(props) {
               {/* 課程封面 */}
               <div className=" sm:w-1/4 w-full  h-40 relative overflow-hidden ">
                 <Image
-                  src={`http://localhost:3005${c.photo}`}
+                  src={`https://daiski-ispan.onrender.com${c.photo}`}
                   alt={c.name}
                   width={500}
                   height={200}

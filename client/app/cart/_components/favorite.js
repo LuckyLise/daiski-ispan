@@ -4,14 +4,14 @@ import { useAuth } from '@/hooks/use-auth';
 import FavoriteButton from '@/components/favorite-button';
 import { useState, useEffect, useCallback } from 'react';
 
-// 然後在export前定義fetcher(我的fetcher定義時自帶http://localhost:3005) 使用useSWR()時裡面的fetch連結不用再打一次port
+// 然後在export前定義fetcher(我的fetcher定義時自帶https://daiski-ispan.onrender.com) 使用useSWR()時裡面的fetch連結不用再打一次port
 // fetcher 中要包含 credentials 以處理後端抓資料時需要的登入狀態
 
 export default function Favorite({ cart }) {
   // 1. 獲取用戶認證狀態，判斷用戶是否登入
   const { user, isAuth, isLoading } = useAuth();
   const fetcher = (url) =>
-    fetch(`http://localhost:3005${url}`, { credentials: 'include' }).then((r) =>
+    fetch(`https://daiski-ispan.onrender.com${url}`, { credentials: 'include' }).then((r) =>
       r.json()
     );
   // 2. 取得收藏清單
@@ -42,11 +42,11 @@ export default function Favorite({ cart }) {
         // 根據收藏狀態發送 API 請求
         if (isFav) {
           await fetch(
-            `http://localhost:3005/api/profile/favorites/${productId}`,
+            `https://daiski-ispan.onrender.com/api/profile/favorites/${productId}`,
             { method: 'DELETE', credentials: 'include' }
           );
         } else {
-          await fetch('http://localhost:3005/api/profile/favorites', {
+          await fetch('https://daiski-ispan.onrender.com/api/profile/favorites', {
             method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },

@@ -79,9 +79,9 @@ export default function MemberPage() {
     }
   }
   const [src, setSrc] = useState(
-    // user.avatar ? `http://localhost:3005${user.avatar}` : '/avatar.webp'
+    // user.avatar ? `https://daiski-ispan.onrender.com${user.avatar}` : '/avatar.webp'
     user.avatar
-    // `http://localhost:3005/api/profile/avatar/${user.id}`
+    // `https://daiski-ispan.onrender.com/api/profile/avatar/${user.id}`
   ); // 當前顯示的頭像 URL
   console.log(src);
   return (
