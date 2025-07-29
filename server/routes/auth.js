@@ -75,17 +75,12 @@ const generateAccessToken = async (res, user) => {
   // 使用httpOnly cookie來讓瀏覽器端儲存access token
   // 如果是正式環境，sameSite: 'none' 要設定secure: true，表示只有https連線才會傳送cookie
   const option = isDev
-    ? {
-        httpOnly: true,
-        sameSite: 'none',
-        secure: true,
-        domain: 'daiski-ispan-is17.vercel.app',
-      }
+    ? { httpOnly: true }
     : {
         httpOnly: true,
         sameSite: 'none',
         secure: true,
-        domain: 'daiski-ispan-is17.vercel.app',
+        domain: 'daiski-ispan.onrender.com',
       };
 
   // 設定cookie
@@ -104,17 +99,12 @@ const generateAccessToken = async (res, user) => {
 const logoutClearCookie = (res) => {
   // 如果是正式環境，sameSite: 'none' 要設定secure: true，表示只有https連線才會傳送cookie，也需要domain
   const option = isDev
-    ? {
-        httpOnly: true,
-        sameSite: 'none',
-        secure: true,
-        domain: 'daiski-ispan-is17.vercel.app',
-      }
+    ? { httpOnly: true }
     : {
         httpOnly: true,
         sameSite: 'none',
         secure: true,
-        domain: 'daiski-ispan-is17.vercel.app',
+        domain: 'daiski-ispan.onrender.com',
       };
 
   // 清除cookie，登入用的accessToken

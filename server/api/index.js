@@ -87,15 +87,9 @@ if (serverConfig.sessionStoreType === 'redis') {
 const isDev = process.env.NODE_ENV === 'development';
 
 const options = isDev
-  ? {
-      domain: 'daiski-ispan-is17.vercel.app',
-      maxAge: 30 * 86400000, // session保存30天
-      httpOnly: true, // 無法透過JavaScript讀取
-      secure: true, // HTTPS才能使用
-      sameSite: 'none', // 跨域時也能使用
-    }
+  ? { maxAge: 30 * 86400000 }
   : {
-      domain: 'daiski-ispan-is17.vercel.app',
+      domain: 'daiski-ispan.onrender.com',
       maxAge: 30 * 86400000, // session保存30天
       httpOnly: true, // 無法透過JavaScript讀取
       secure: true, // HTTPS才能使用
