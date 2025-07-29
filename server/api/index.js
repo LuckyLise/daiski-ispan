@@ -33,7 +33,7 @@ const server = http.createServer(app);
 // cors設定，參數為必要，注意不要只寫`app.use(cors())`
 // 設定白名單，只允許特定網址存取
 const frontendUrl = 'https://daiski-ispan-is17.vercel.app';
-const whiteList = frontendUrl.split(',');
+const whiteList = 'https://daiski-ispan-is17.vercel.app';
 // 設定CORS
 app.use(
   cors({

@@ -7,7 +7,11 @@ import users from './users.js';
 console.log(users);
 
 const upload = multer();
-const whiteList = ['http://localhost:5500', 'http://localhost:3000'];
+const whiteList = [
+  'https://daiski-ispan-is17.vercel.app',
+  'http://localhost:5500',
+  'http://localhost:3000',
+];
 const corsOptions = {
   credentials: true,
   origin(origin, callback) {
