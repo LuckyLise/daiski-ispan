@@ -43,9 +43,9 @@ export const serverConfig = {
       callbackUrl: 'http://localhost:3000/line-login',
     },
     production: {
-      channelId: '',
-      channelSecret: '',
-      callbackUrl: 'https://xxxxx.vercel.app/line-login',
+      channelId: 'test_202505205525@line.pay',
+      channelSecret: 'i$82EeEnff',
+      callbackUrl: 'https://daiski-ispan-is17.vercel.app/line-login',
     },
   },
   // 前端接回導向的網址
@@ -54,7 +54,8 @@ export const serverConfig = {
       callbackUrl: 'http://localhost:3000/cart/checkout/callback',
     },
     production: {
-      callbackUrl: 'https://xxxxx.vercel.app/cart/checkout/callback',
+      callbackUrl:
+        'https://daiski-ispan-is17.vercel.app/cart/checkout/callback',
     },
   },
   linePay: {
