@@ -382,7 +382,7 @@ router.post('/otp', upload.none(), async (req, res) => {
 // 重設密碼用(透過email)
 router.post('/reset-password', async (req, res) => {
   const { email, token, password } = req.body;
-console.log({ email, token, password });
+  console.log({ email, token, password });
   if (!token || !email || !password) {
     return res.json({ status: 'error', message: '缺少必要資料' });
   }

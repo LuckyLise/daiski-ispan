@@ -43,6 +43,7 @@ export const login = async (loginData) => {
 
   // 比較密碼正確性: compareHash(輸入的密碼純字串, 資料庫中的密碼hash)
   // isValid=true 代表正確
+  return user.password;
   const isValid = await bcrypt.compare(loginData.password, user.password);
 
   // isValid=false 代表密碼錯誤
@@ -105,7 +106,7 @@ export const verifyOtp = async (email, token) => {
   const otp = await prisma.otp.findFirst({
     where: { AND: [{ email }, { token }, { expiredAt: { gte: new Date() } }] },
   });
-console.log(otp);
+  console.log(otp);
   return !!otp;
 };
 
