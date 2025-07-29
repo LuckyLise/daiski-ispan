@@ -32,11 +32,7 @@ const app = express();
 const server = http.createServer(app);
 // cors設定，參數為必要，注意不要只寫`app.use(cors())`
 // 設定白名單，只允許特定網址存取
-const frontendUrl =
-  'https://daiski-ispan-is17.vercel.app' ||
-  process.env.FRONTEND_URL ||
-  'http://localhost:3000' ||
-  'http://localhost:3005';
+const frontendUrl = 'https://daiski-ispan-is17.vercel.app';
 const whiteList = frontendUrl.split(',');
 // 設定CORS
 app.use(
@@ -89,7 +85,7 @@ const isDev = process.env.NODE_ENV === 'development';
 const options = isDev
   ? { maxAge: 30 * 86400000 }
   : {
-      domain: 'daiski-ispan.onrender.com',
+      domain: 'daiski-ispan-is17.vercel.app',
       maxAge: 30 * 86400000, // session保存30天
       httpOnly: true, // 無法透過JavaScript讀取
       secure: true, // HTTPS才能使用

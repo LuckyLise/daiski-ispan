@@ -80,7 +80,7 @@ const generateAccessToken = async (res, user) => {
         httpOnly: true,
         sameSite: 'none',
         secure: true,
-        domain: 'daiski-ispan.onrender.com',
+        domain: 'daiski-ispan-is17.vercel.app',
       };
 
   // 設定cookie
@@ -104,7 +104,7 @@ const logoutClearCookie = (res) => {
         httpOnly: true,
         sameSite: 'none',
         secure: true,
-        domain: 'daiski-ispan.onrender.com',
+        domain: 'daiski-ispan-is17.vercel.app',
       };
 
   // 清除cookie，登入用的accessToken
